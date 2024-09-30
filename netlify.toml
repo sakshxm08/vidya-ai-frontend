@@ -8,7 +8,6 @@
   to = "https://vidya-ai-backend.vercel.app/api/:splat"
   status = 200
   force = true
-  conditions = {Path = "/api/*"}
 
 [[redirects]]
   from = "/*"
