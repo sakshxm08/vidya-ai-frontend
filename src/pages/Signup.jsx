@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 import FloatingLabelInput from "../components/FloatingLabelInput";
 import { IoChevronDown } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSignup from "../hooks/useSignup";
 
 const Signup = () => {
   // Signup Hook
   const { signup, isLoading } = useSignup();
 
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   // Form Details State Object
   const [formData, setFormData] = useState({
@@ -35,7 +36,8 @@ const Signup = () => {
   // Submitting the form
   const handleSignup = async (e) => {
     e.preventDefault();
-    await signup(formData);
+    const newChatId = await signup(formData);
+    if (newChatId) navigate(`/c/${newChatId}`, { replace: true });
   };
   return (
     <div className="flex w-full gap-4">

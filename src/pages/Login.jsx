@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import FloatingLabelInput from "../components/FloatingLabelInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
 
 const Login = () => {
   const { login, isLoading } = useLogin();
 
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -22,7 +23,8 @@ const Login = () => {
   // Submitting the form
   const handleLogin = async (e) => {
     e.preventDefault();
-    await login(formData);
+    const newChatId = await login(formData);
+    if (newChatId) navigate(`/c/${newChatId}`, { replace: true });
   };
   return (
     <div className="flex w-full gap-4">

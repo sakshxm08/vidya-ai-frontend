@@ -1,11 +1,11 @@
 import { useState } from "react"; // Importing useState hook from React
 import api from "../api/api"; // Importing API functions for making requests
-import useAuthContext from "./useAuthContext"; // Custom hook to access the auth context
 import toast from "react-hot-toast"; // Library for displaying toast messages
+import { useAuthStore } from "../stores/AuthStore";
 
 const useLogout = () => {
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
-  const Auth = useAuthContext(); // Accessing the auth context using useAuthContext hook
+  const { logout: logoutAuthStore } = useAuthStore();
 
   // Function to handle logout
   const logout = async () => {
@@ -19,7 +19,7 @@ const useLogout = () => {
       localStorage.removeItem("session");
 
       // Dispatching action to update auth context with logout status
-      Auth.dispatch({ type: "LOGOUT" });
+      logoutAuthStore();
     } catch (error) {
       // Displaying error message in toast if request fails
       toast.error(error.response.data.message);

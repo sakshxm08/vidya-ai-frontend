@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
 import { logo } from "../assets/assets";
-import useAuthContext from "../hooks/useAuthContext";
 import useLogout from "../hooks/useLogout";
 import ThemeController from "./ThemeController";
+import { useAuthStore } from "../stores/AuthStore";
 
 const Navbar = () => {
-  const Auth = useAuthContext();
+  const Auth = useAuthStore();
 
   const { logout } = useLogout();
   return (
     <div className="navbar bg-base-100 px-4 rounded-xl shadow dark:text-gray-100 dark:bg-dark">
       <div className="flex-1">
         <Link to="/" className="w-fit flex gap-2 items-center">
-          {/* <a className="text-xl font-semibold">Buzz</a> */}
           <img src={logo} alt="" className="h-14" />
           <h1 className="text-2xl font-black font-heading">VidyaAI</h1>
         </Link>

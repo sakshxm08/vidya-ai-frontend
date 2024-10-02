@@ -5,12 +5,14 @@ import {
 } from "../utils/handleInputErrors"; // Utility functions for handling input errors
 import toast from "react-hot-toast"; // Library for displaying toast messages
 import api from "../api/api"; // Importing API functions for making requests
-import useAuthContext from "./useAuthContext"; // Custom hook to access authentication context
+import { useAuthStore } from "../stores/AuthStore";
+import { useChatStore } from "../stores/ChatStore";
 
 const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
 
-  const Auth = useAuthContext(); // Accessing authentication context using useAuthContext hook
+  const { login: loginAuthStore } = useAuthStore();
+  const { setChats, setSelectedChat } = useChatStore();
 
   // Function to handle user signup
   const signup = async (details) => {
@@ -30,7 +32,11 @@ const useSignup = () => {
       localStorage.setItem("session", true);
 
       // Dispatching action to update authentication context with user data
-      Auth.dispatch({ type: "LOGIN", payload: res.data.user });
+      loginAuthStore(res.data.user);
+      setChats(res.data.chats);
+      setSelectedChat(res.data.newChat._id);
+
+      return res.data.newChat._id;
     } catch (error) {
       // Displaying error message in toast if request fails
       toast.error(error.response.data.message);
