@@ -5,12 +5,15 @@ import ContactPreview from "./ChatPreview";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import isYesterday from "dayjs/plugin/isYesterday";
+import { IoAdd } from "react-icons/io5";
+import useNewChat from "../hooks/useNewChat";
 // Extend dayjs with necessary plugins
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
 const Sidebar = () => {
   const { chats } = useChatStore();
 
+  const { newChat } = useNewChat();
   // Helper function to group chats by date
   const groupChatsByDate = (chats) => {
     const grouped = {};
@@ -40,12 +43,23 @@ const Sidebar = () => {
   const groupedChats = groupChatsByDate(
     chats.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
   );
+
+  const handleNewChat = () => {
+    newChat();
+  };
   return (
     <div className="rounded-xl flex flex-col w-full bg-base-100 dark:bg-dark h-[40rem] overflow-hidden shadow">
       <div className="flex w-full gap-2 items-center px-3 py-4 sticky top-0 bg-white dark:bg-dark/80 z-20 shadow">
         <h2 className="font-bold text-xl dark:text-white">Recent Chats</h2>
       </div>
       <div className="h-full overflow-auto p-4 flex flex-col gap-2">
+        <button
+          onClick={handleNewChat}
+          className="border rounded-md text-left p-2 flex items-center gap-2 hover:bg-gray-50 transition-all active:bg-gray-100 text-sm"
+        >
+          <IoAdd size={16} />
+          New Chat
+        </button>
         {Object.keys(groupedChats).map((dateLabel) => (
           <div key={dateLabel} className="flex flex-col gap-2">
             {/* Render the date label */}

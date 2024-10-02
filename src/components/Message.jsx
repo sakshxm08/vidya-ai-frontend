@@ -1,6 +1,7 @@
 // Import necessary modules and hooks
 import PropTypes from "prop-types";
 import { BeatLoader } from "react-spinners";
+import ReactMarkdown from "react-markdown";
 
 // Message component definition
 const Message = ({ message, loading = false }) => {
@@ -28,7 +29,7 @@ const Message = ({ message, loading = false }) => {
         }`}
       >
         {/* Render message text */}
-        {message?.message}
+        <ReactMarkdown>{message?.message}</ReactMarkdown>
         <div
           className={`flex items-end justify-end text-[10px] w-full ${timeColor}`}
         ></div>

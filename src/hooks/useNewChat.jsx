@@ -14,7 +14,7 @@ const useNewChat = () => {
       const res = await api.post("/chat"); // Create new chat
       console.log("Response from server:", res);
       if (res.data.error) throw new Error(res.data.error);
-
+      console.log(res.data);
       setNewChat(res.data.chat);
     } catch (error) {
       // Displaying error message in toast if request fails
