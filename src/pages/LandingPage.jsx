@@ -12,12 +12,12 @@ const LandingPage = () => {
     {
       heading: "Profanity Blocking",
       description:
-        "Our AI blocks all profanity and ignores jailbreaking attempts.",
+        "Our AI blocks all profanity, jailbreaking and hallucination attempts.",
     },
     {
       heading: "Custom Knowledge Expansion",
       description:
-        "Expand Vidya's knowledge to tackle custom problems without fine-tuning.",
+        "Expand Vidya's knowledge to tackle custom problems and customize teaching content.",
     },
     {
       heading: "Accessible Learning",
@@ -32,10 +32,10 @@ const LandingPage = () => {
             Hi, I&apos;m Vidya!
           </h1>
           <h1 className="text-2xl font-bold">Guiding You to Knowledge</h1>
-          <p className=" text-gray-200">
+          <p className="text-gray-200">
             Ask Vidya, the AI teacher, to guide you step by step towards
             mastering complex problems using Socratic teaching methods.
-            Learning, just like asking your favorite teacher — available 24/7.
+            Learning, just like asking your favorite teacher - Available 24/7.
           </p>
         </div>
         <Link
@@ -56,10 +56,9 @@ const LandingPage = () => {
           ></path>
         </svg>
       </section>
-
       <section className="py-10 relative flex flex-col gap-10 items-center">
         <h2 className="text-4xl text-center font-heading font-bold text-primary-500 dark:text-white">
-          Why Choose VidyaAI?
+          Why VidyaAI?
         </h2>
         <div className="flex justify-around gap-8 px-8">
           {features.map((feature) => (
@@ -77,7 +76,7 @@ const LandingPage = () => {
       </section>
 
       <footer className="bg-gradient-to-r mt-10 from-blue-600 to-primary-600 p-4 text-center">
-        <p>&copy; 2024 VidyaAI. All rights reserved.</p>
+        <p>Made with ❤️ by the Lucid Schemers</p>
       </footer>
     </div>
   );
