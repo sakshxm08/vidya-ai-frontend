@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useThemeStore } from "../stores/ThemeStore"; // {{ edit_1 }}
 
 const ThemeController = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { theme, setTheme } = useThemeStore(); // {{ edit_2 }}
 
   const checkboxRef = useRef(null);
   useEffect(() => {
@@ -17,6 +18,7 @@ const ThemeController = () => {
       checkboxRef.current.checked = false;
     }
   }, [theme]);
+
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
@@ -27,11 +29,9 @@ const ThemeController = () => {
         ref={checkboxRef}
         onChange={(e) => {
           if (e.target.checked) {
-            setTheme("dark");
-            localStorage.setItem("theme", "dark");
+            setTheme("dark"); // {{ edit_3 }}
           } else {
-            setTheme("light");
-            localStorage.setItem("theme", "light");
+            setTheme("light"); // {{ edit_4 }}
           }
         }}
       />

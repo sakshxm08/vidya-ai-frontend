@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import MessageSection from "./components/MessageSection";
 import { useAuthStore } from "./stores/AuthStore";
 import { useEffect } from "react";
+import LandingPage from "./pages/LandingPage";
 
 const Layout = () => {
   const { loading, refresh } = useAuthStore();
@@ -41,10 +42,13 @@ const App = () => {
     {
       path: "/",
       element: <Layout />,
-
       children: [
         {
           path: "",
+          element: <LandingPage />,
+        },
+        {
+          path: "c",
           element: user ? <Home /> : <Navigate to="/login" />,
           children: [{ path: "c/:chatId", element: <MessageSection /> }],
         },

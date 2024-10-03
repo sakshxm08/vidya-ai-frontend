@@ -26,6 +26,9 @@ export default {
           950: "#3f115a",
         },
       },
+      boxShadow: {
+        "3xl": "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   safelist: [
