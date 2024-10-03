@@ -54,11 +54,11 @@ const App = () => {
         },
         {
           path: "signup",
-          element: user ? <Navigate to="/" /> : <Signup />,
+          element: user ? <Navigate to="/c" /> : <Signup />,
         },
         {
           path: "login",
-          element: user ? <Navigate to="/" /> : <Login />,
+          element: user ? <Navigate to="/c" /> : <Login />,
         },
       ],
     },
