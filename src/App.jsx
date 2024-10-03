@@ -50,7 +50,7 @@ const App = () => {
         {
           path: "c",
           element: user ? <Home /> : <Navigate to="/login" />,
-          children: [{ path: "c/:chatId", element: <MessageSection /> }],
+          children: [{ path: ":chatId", element: <MessageSection /> }],
         },
         {
           path: "signup",
