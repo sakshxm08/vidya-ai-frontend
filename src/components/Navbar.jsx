@@ -17,6 +17,14 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex-none gap-4">
+        {!Auth?.user && (
+          <Link
+            to="/login"
+            className="px-4 border hover:border-primary-500 hover:text-primary-500 transition-all py-2 rounded-md"
+          >
+            Login
+          </Link>
+        )}
         <ThemeController />
         {Auth.user && (
           <div className="dropdown dropdown-end">
