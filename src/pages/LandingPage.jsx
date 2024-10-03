@@ -40,7 +40,7 @@ const LandingPage = () => {
         </div>
         <Link
           to="/login"
-          className="bg-white font-heading text-primary-500 px-6 py-2 font-bold rounded cursor-pointer"
+          className="bg-white z-20 font-heading text-primary-500 px-6 py-2 font-bold rounded cursor-pointer"
         >
           Ask Vidya
         </Link>
@@ -73,37 +73,11 @@ const LandingPage = () => {
               <p className="text-center text-sm">{feature.description}</p>
             </div>
           ))}
-          {/* <div className="bg-white text-primary-500 py-6 px-8 w-1/4 rounded shadow-lg flex items-center justify-center flex-col gap-2">
-            <h3 className="font-bold text-primary-700 text-lg">
-              Socratic Teaching Method
-            </h3>
-            <p className="text-center text-sm">
-              Vidya uses Socratic methods to guide you through complex problems
-              step-by-step.
-            </p>
-          </div>
-          <div className="bg-white text-primary-500 p-4 w-1/4 rounded shadow-lg">
-            <h3 className="font-bold">Profanity Blocking</h3>
-            <p>
-              Our AI blocks all profanity and ignores jailbreaking attempts.
-            </p>
-          </div>
-          <div className="bg-white text-primary-500 p-4 w-1/4 rounded shadow-lg">
-            <h3 className="font-bold">Custom Knowledge Expansion</h3>
-            <p>
-              Expand Vidya&apos;s knowledge to tackle custom problems without
-              fine-tuning.
-            </p>
-          </div>
-          <div className="bg-white text-primary-500 p-4 w-1/4 rounded shadow-lg">
-            <h3 className="font-bold">Accessible Learning</h3>
-            <p>Available to anyone with a phone and internet connection.</p>
-          </div> */}
         </div>
       </section>
 
       <footer className="bg-gradient-to-r mt-10 from-blue-600 to-primary-600 p-4 text-center">
-        <p>&copy; 2023 VidyaAI. All rights reserved.</p>
+        <p>&copy; 2024 VidyaAI. All rights reserved.</p>
       </footer>
     </div>
   );
