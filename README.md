@@ -1,6 +1,6 @@
-# VidyaAI
+<img src="./public/logo.png" alt="VidyaAI Logo" height="60px"/>
 
-![VidyaAI Logo](./src/assets/logo.png)
+# VidyaAI
 
 VidyaAI is an interactive AI-powered learning platform that utilizes the Socratic teaching method to guide users through complex problems step-by-step. The application is designed to provide accessible learning to anyone with a phone and internet connection, while also ensuring a safe environment by blocking profanity and ignoring jailbreaking attempts.
 
